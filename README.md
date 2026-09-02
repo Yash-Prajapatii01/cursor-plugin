@@ -4,18 +4,16 @@ Connect [Cursor](https://cursor.com) to [eResource Scheduler](https://www.eresou
 
 ```
 .cursor-plugin/marketplace.json
-ers/
+plugins/ers/
   .cursor-plugin/plugin.json
   mcp.json
   assets/logo.svg
 ```
 
-## Add from folder
+## Install
 
-Select this repo root:
+**GitHub:** `https://github.com/Yash-Prajapatii01/cursor-plugin`
 
-```
-/Users/enbraun-12/Documents/ers-cursor-plugin
-```
+**Folder:** this repo root (`/Users/enbraun-12/Documents/ers-cursor-plugin`)
 
 Then **Settings → Tools & MCP → ers → Connect**.

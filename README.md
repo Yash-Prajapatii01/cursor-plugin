@@ -1,19 +1,23 @@
 # eResource Scheduler plugin for Cursor
 
-Connect [Cursor](https://cursor.com) to [eResource Scheduler](https://www.eresourcescheduler.com) via MCP. OAuth is handled by Cursor — no API tokens in config files.
+Connect [Cursor](https://cursor.com) to [eResource Scheduler](https://www.eresourcescheduler.com) via MCP. OAuth is handled by Cursor.
+
+This is a **single plugin** (not a marketplace), matching [cursor/plugin-template](https://github.com/cursor/plugin-template):
 
 ```
-.cursor-plugin/marketplace.json
-plugins/ers/
-  .cursor-plugin/plugin.json
-  mcp.json
-  assets/logo.svg
+.cursor-plugin/plugin.json
+mcp.json
+assets/logo.svg
 ```
 
-## Install
+## Install from GitHub
 
-**GitHub:** `https://github.com/Yash-Prajapatii01/cursor-plugin`
+Add this repository in Cursor:
 
-**Folder:** this repo root (`/Users/enbraun-12/Documents/ers-cursor-plugin`)
+`https://github.com/Yash-Prajapatii01/cursor-plugin`
 
 Then **Settings → Tools & MCP → ers → Connect**.
+
+## Local test
+
+Copy this folder to `~/.cursor/plugins/local/ers` (real files, not a symlink) and reload Cursor.

@@ -20,6 +20,14 @@
     "mcp"
   ],
   "brandColor": "#2563EB",
+  "category": "productivity",
+  "tags": [
+    "scheduling",
+    "resources",
+    "timesheets",
+    "mcp"
+  ],
+  "logo": "https://www.eresourcescheduler.com/assets/images/home-page/center_eRS_logo.png",
   "mcp": {
     "serverKey": "ers",
     "url": "https://mcp.eresourcescheduler.cloud/mcp",

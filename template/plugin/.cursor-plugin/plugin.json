@@ -11,7 +11,8 @@
   "repository": "{{REPOSITORY}}",
   "license": "{{LICENSE}}",
   "keywords": {{KEYWORDS_JSON}},
-  "logo": "assets/logo.svg",
-  "skills": "./skills/",
+  "category": "{{CATEGORY}}",
+  "tags": {{TAGS_JSON}},
+  "logo": "{{LOGO}}",
   "mcpServers": "./mcp.json"
 }

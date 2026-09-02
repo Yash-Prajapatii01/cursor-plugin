@@ -11,9 +11,9 @@
   "plugins": [
     {
       "name": "{{PLUGIN_NAME}}",
-      "source": ".",
+      "source": "./plugins/{{PLUGIN_NAME}}",
       "description": "{{DESCRIPTION}}",
-      "version": "{{VERSION}}"
+      "logo": "{{LOGO}}"
     }
   ]
 }

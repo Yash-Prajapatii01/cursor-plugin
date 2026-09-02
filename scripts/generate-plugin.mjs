@@ -11,11 +11,11 @@ function usage() {
   console.log(`Usage: node scripts/generate-plugin.mjs [options]
 
 Generate a Cursor MCP plugin from template/ + config JSON.
-Writes a single plugin (plugin.json), not a marketplace catalog.
+Writes plugins/<name>/ plus .cursor-plugin/marketplace.json (cursor/plugin-template layout).
 
 Options:
   -c, --config <file>   Config JSON (default: plugin.config.json)
-  -o, --output <dir>    Plugin output directory (default: this repo root)
+  -o, --output <dir>    Plugin output directory (default: plugins/<name>)
   -f, --force           Overwrite generated plugin files
   -h, --help            Show this help
 
@@ -24,14 +24,14 @@ Examples:
   # edit plugin.config.json, then:
   node scripts/generate-plugin.mjs
 
-  node scripts/generate-plugin.mjs -c examples/ers.plugin.config.json -o . -f
+  node scripts/generate-plugin.mjs -c examples/ers.plugin.config.json -f
 `);
 }
 
 function parseArgs(argv) {
   const options = {
     config: path.join(repoRoot, "plugin.config.json"),
-    output: repoRoot,
+    output: null,
     force: false,
     help: false,
   };
@@ -146,6 +146,9 @@ function buildReplacements(config) {
     SKILL_WORKFLOWS_TABLE: skillWorkflowsTable,
     BRAND_COLOR: config.brandColor ?? "#2563EB",
     YEAR: String(new Date().getFullYear()),
+    CATEGORY: config.category ?? "productivity",
+    TAGS_JSON: JSON.stringify(config.tags ?? config.keywords, null, 2),
+    LOGO: config.logo ?? "assets/logo.png",
   };
 }
 
@@ -189,7 +192,7 @@ async function generatePlugin(options) {
   validateConfig(config);
 
   const replacements = buildReplacements(config);
-  const outputDir = options.output ?? repoRoot;
+  const outputDir = options.output ?? path.join(repoRoot, "plugins", config.name);
   const pluginTemplateDir = path.join(repoRoot, "template", "plugin");
   const marketplaceTemplatePath = path.join(repoRoot, "template", "marketplace.json");
 
@@ -199,11 +202,6 @@ async function generatePlugin(options) {
         throw new Error(`Output directory already exists: ${outputDir}\nUse --force to overwrite.`);
       }
       await fs.rm(outputDir, { recursive: true, force: true });
-    } else if (outputDir === repoRoot) {
-      if (!options.force && (await pathExists(path.join(outputDir, ".cursor-plugin", "plugin.json")))) {
-        throw new Error(`Plugin files already exist in ${outputDir}\nUse --force to overwrite.`);
-      }
-      await fs.rm(path.join(outputDir, "skills"), { recursive: true, force: true });
     } else if (!options.force) {
       throw new Error(`Output directory already exists: ${outputDir}\nUse --force to overwrite.`);
     }
@@ -220,23 +218,22 @@ async function generatePlugin(options) {
     await fs.writeFile(outputFile, rendered, "utf8");
   }
 
-  if (outputDir === repoRoot) {
-    const marketplaceRaw = await fs.readFile(marketplaceTemplatePath, "utf8");
-    const marketplaceRendered = applyReplacements(marketplaceRaw, replacements);
-    const marketplaceOut = path.join(repoRoot, ".cursor-plugin", "marketplace.json");
-    await fs.mkdir(path.dirname(marketplaceOut), { recursive: true });
-    await fs.writeFile(marketplaceOut, marketplaceRendered, "utf8");
-  }
+  const marketplaceRaw = await fs.readFile(marketplaceTemplatePath, "utf8");
+  const marketplaceRendered = applyReplacements(marketplaceRaw, replacements);
+  const marketplaceOut = path.join(repoRoot, ".cursor-plugin", "marketplace.json");
+  await fs.mkdir(path.dirname(marketplaceOut), { recursive: true });
+  await fs.writeFile(marketplaceOut, marketplaceRendered, "utf8");
 
   console.log(`Generated Cursor MCP plugin at:\n  ${outputDir}`);
-  console.log("\nAdd from folder in Cursor (requires marketplace.json + a git commit):");
-  console.log(`  ${outputDir}`);
+  console.log(`Wrote marketplace manifest at:\n  ${marketplaceOut}`);
+  console.log("\nAdd from folder in Cursor (repo root, requires a git commit):");
+  console.log(`  ${repoRoot}`);
   console.log("\nOr symlink as a local plugin:");
   console.log(`  mkdir -p ~/.cursor/plugins/local`);
   console.log(`  ln -sf ${outputDir} ~/.cursor/plugins/local/${config.name}`);
   console.log("  Then Developer: Reload Window → Tools & MCP → Connect");
   console.log("\nNext steps:");
-  console.log(`  node scripts/validate-plugin.mjs ${outputDir === repoRoot ? "." : outputDir}`);
+  console.log(`  node scripts/validate-plugin.mjs ${path.relative(repoRoot, outputDir) || "."}`);
   console.log("  Push repo to GitHub and submit at https://cursor.com/marketplace/publish");
 }
 

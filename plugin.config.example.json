@@ -12,6 +12,8 @@
   "license": "MIT",
   "keywords": ["mcp", "example"],
   "brandColor": "#2563EB",
+  "category": "productivity",
+  "tags": ["mcp", "example"],
   "mcp": {
     "serverKey": "my-product",
     "url": "https://mcp.example.com/mcp",

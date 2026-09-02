@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "{{MCP_SERVER_KEY}}": {
+      "type": "{{MCP_TYPE}}",
+      "url": "https://your-mcp-host.example.com/mcp"
+    }
+  }
+}

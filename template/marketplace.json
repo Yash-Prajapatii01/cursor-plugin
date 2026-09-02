@@ -1,0 +1,19 @@
+{
+  "name": "{{PLUGIN_NAME}}",
+  "owner": {
+    "name": "{{AUTHOR_NAME}}",
+    "email": "{{AUTHOR_EMAIL}}"
+  },
+  "metadata": {
+    "description": "{{DESCRIPTION}}",
+    "version": "{{VERSION}}"
+  },
+  "plugins": [
+    {
+      "name": "{{PLUGIN_NAME}}",
+      "source": ".",
+      "description": "{{DESCRIPTION}}",
+      "version": "{{VERSION}}"
+    }
+  ]
+}

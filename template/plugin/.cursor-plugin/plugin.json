@@ -1,0 +1,17 @@
+{
+  "name": "{{PLUGIN_NAME}}",
+  "displayName": "{{DISPLAY_NAME}}",
+  "version": "{{VERSION}}",
+  "description": "{{DESCRIPTION}}",
+  "author": {
+    "name": "{{AUTHOR_NAME}}",
+    "email": "{{AUTHOR_EMAIL}}"
+  },
+  "homepage": "{{HOMEPAGE}}",
+  "repository": "{{REPOSITORY}}",
+  "license": "{{LICENSE}}",
+  "keywords": {{KEYWORDS_JSON}},
+  "logo": "assets/logo.svg",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

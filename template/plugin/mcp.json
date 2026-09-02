@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "{{MCP_SERVER_KEY}}": {
-      "type": "{{MCP_TYPE}}",
-      "url": "{{MCP_URL}}"
-    }
-  }
-}

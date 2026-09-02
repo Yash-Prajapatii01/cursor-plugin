@@ -3,5 +3,3 @@
 .vscode/
 *.swp
 *~
-dist/
-plugin.config.json

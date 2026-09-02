@@ -12,8 +12,7 @@
     {
       "name": "ers",
       "source": "./plugins/ers",
-      "description": "Connect Cursor to eResource Scheduler. Manage resources, projects, bookings, timesheets, rates, and reports through the ERS MCP server with OAuth.",
-      "logo": "https://www.eresourcescheduler.com/assets/images/home-page/center_eRS_logo.png"
+      "description": "Connect Cursor to eResource Scheduler. Manage resources, projects, bookings, timesheets, rates, and reports through the ERS MCP server with OAuth."
     }
   ]
 }

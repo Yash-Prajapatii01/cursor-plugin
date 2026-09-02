@@ -1,36 +1,21 @@
-# eResource Scheduler Cursor plugin
+# eResource Scheduler plugin for Cursor
 
-Repo layout matches [cursor/plugin-template](https://github.com/cursor/plugin-template): a marketplace manifest at the repo root and one plugin under `plugins/ers`.
+Connect [Cursor](https://cursor.com) to [eResource Scheduler](https://www.eresourcescheduler.com) via MCP. OAuth is handled by Cursor — no API tokens in config files.
 
 ```
-.cursor-plugin/marketplace.json   # required for Cursor Add from folder
+.cursor-plugin/marketplace.json
 plugins/ers/
-  .cursor-plugin/plugin.json      # Cursor Plugin manifest
+  .cursor-plugin/plugin.json
   mcp.json
-  skills/ers-scheduling/SKILL.md
   assets/logo.svg
 ```
 
 ## Add from folder
 
-Select this **repo root** (the folder that contains `.cursor-plugin/marketplace.json`):
+Select this repo root:
 
 ```
 /Users/enbraun-12/Documents/ers-cursor-plugin
 ```
 
-Then **Settings → Tools & MCP → ers → Connect**.
-
-## Local plugin symlink (optional)
-
-```bash
-mkdir -p ~/.cursor/plugins/local
-ln -sf "$(pwd)/plugins/ers" ~/.cursor/plugins/local/ers
-```
-
-## Regenerate
-
-```bash
-npm run generate:ers
-npm run validate:ers
-```
+Then **Settings → Tools & MCP → eResource Scheduler mcp → Connect**.

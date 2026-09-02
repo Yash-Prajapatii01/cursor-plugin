@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "ers",
-      "source": "./plugins/ers",
+      "source": "./ers",
       "description": "Connect Cursor to eResource Scheduler. Manage resources, projects, bookings, timesheets, rates, and reports through the ERS MCP server with OAuth."
     }
   ]

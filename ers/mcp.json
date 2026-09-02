@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "eResource Scheduler mcp": {
+    "ers": {
       "type": "http",
       "url": "https://test.eresourcescheduler.cloud/mcp"
     }

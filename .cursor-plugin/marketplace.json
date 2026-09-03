@@ -6,12 +6,13 @@
   },
   "metadata": {
     "description": "Manage resources, projects, bookings, timesheets, rates, and reports.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "pluginRoot": "plugins"
   },
   "plugins": [
     {
       "name": "ers",
-      "source": "./plugins/ers",
+      "source": "ers",
       "description": "Manage resources, projects, bookings, timesheets, rates, and reports."
     }
   ]

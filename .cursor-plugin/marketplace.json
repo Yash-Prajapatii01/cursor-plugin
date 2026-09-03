@@ -11,9 +11,8 @@
   "plugins": [
     {
       "name": "ers",
-      "source": "plugins/ers",
-      "description": "Manage resources, projects, bookings, timesheets, rates, and reports.",
-      "logo": "assets/logo.png"
+      "source": ".",
+      "description": "Manage resources, projects, bookings, timesheets, rates, and reports."
     }
   ]
 }

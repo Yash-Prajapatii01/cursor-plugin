@@ -4,6 +4,18 @@ Cursor plugin that connects agents to [eResource Scheduler](https://www.eresourc
 
 Manage resources, projects, bookings, timesheets, rates, and reports in the signed-in ERS workspace.
 
+## Skills
+
+| Skill | What it does |
+|---|---|
+| `capacity-briefing` | Who is overloaded, tight, available, or off |
+| `booking-conflicts` | Overlapping and over-capacity bookings |
+| `project-staffing` | Who can cover remaining project demand |
+| `timesheet-gaps` | Missing or under-reported timesheets |
+| `utilization-report` | Booked or actual hours vs capacity |
+
+Skills are read-first. Confirm in chat before any create or update. There is no setup skill — connect at **Settings → Tools & MCP → ers → Connect**.
+
 ## Install
 
 1. Open **Cursor Settings → Plugins**.

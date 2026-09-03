@@ -5,14 +5,14 @@
     "email": "support@eresourcescheduler.com"
   },
   "metadata": {
-    "description": "Connect Cursor to eResource Scheduler. Manage resources, projects, bookings, timesheets, rates, and reports through the ERS MCP server with OAuth.",
+    "description": "Manage resources, projects, bookings, timesheets, rates, and reports.",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "ers",
       "source": ".",
-      "description": "Connect Cursor to eResource Scheduler. Manage resources, projects, bookings, timesheets, rates, and reports through the ERS MCP server with OAuth."
+      "description": "Manage resources, projects, bookings, timesheets, rates, and reports."
     }
   ]
 }

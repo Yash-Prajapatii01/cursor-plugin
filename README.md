@@ -1,20 +1,43 @@
-# eResource Scheduler plugin for Cursor
+# eResource Scheduler
 
-Connect [Cursor](https://cursor.com) to [eResource Scheduler](https://www.eresourcescheduler.com) via MCP. OAuth is handled by Cursor.
+Cursor plugin that connects agents to [eResource Scheduler](https://www.eresourcescheduler.com) through ERS's remote [Model Context Protocol](https://modelcontextprotocol.io/) server.
 
-```
-.cursor-plugin/plugin.json
-.cursor-plugin/marketplace.json
-mcp.json
-assets/logo.svg
-```
-
-The plugin lives at the repo root (`plugin.json` + `mcp.json`), as Cursor's single-plugin template requires. `marketplace.json` with `"source": "."` is only so Add from folder / Add from GitHub can list that one plugin. There is no nested `plugins/` folder.
+Manage resources, projects, bookings, timesheets, rates, and reports in the signed-in ERS workspace.
 
 ## Install
 
-**GitHub:** `https://github.com/Yash-Prajapatii01/cursor-plugin`
+1. Open **Cursor Settings → Plugins**.
+2. Add from GitHub: `https://github.com/Yash-Prajapatii01/cursor-plugin`
+3. Click **Install**, then connect at **Settings → Tools & MCP → ers → Connect**.
 
-**Folder:** this repo root.
+Or add this repo from a local folder.
 
-Then **Settings → Tools & MCP → ers → Connect**.
+## MCP
+
+```json
+{
+  "mcpServers": {
+    "ers": {
+      "type": "http",
+      "url": "https://test.eresourcescheduler.cloud/mcp"
+    }
+  }
+}
+```
+
+Auth is OAuth 2.0 against ERS. Cursor prompts for ERS sign-in when the plugin connects — there is no API key or client ID to configure.
+
+## Notes
+
+- Tool calls run as the ERS user who authorizes the connection and cannot exceed that user's permissions.
+- This plugin currently points at the ERS test MCP endpoint.
+
+## Docs
+
+- Product: https://www.eresourcescheduler.com
+- Repository: https://github.com/Yash-Prajapatii01/cursor-plugin
+- MCP server: https://test.eresourcescheduler.cloud/mcp
+
+## License
+
+MIT

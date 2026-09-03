@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "ers",
-      "source": ".",
+      "source": "plugins/ers",
       "description": "Manage resources, projects, bookings, timesheets, rates, and reports."
     }
   ]

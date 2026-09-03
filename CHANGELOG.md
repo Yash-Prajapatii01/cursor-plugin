@@ -7,3 +7,4 @@ All notable changes to this plugin will be documented here.
 - Added the `ers` MCP server pointing at `https://test.eresourcescheduler.cloud/mcp`.
 - Logo: eResource Scheduler brand mark.
 - Skills: `capacity-briefing`, `booking-conflicts`, `project-staffing`, `timesheet-gaps`, `utilization-report`.
+- Plugin lives under `plugins/ers` with marketplace `source: "plugins/ers"` (Cursor marketplace template layout).
